@@ -768,6 +768,7 @@ class Blip2VicunaXInstruct(Blip2Base):
                 if self.prefix and self.clean_tokenization:
                      att_list.extend([self.att_cue[modality][:,1:].repeat(bs, 1).to(self.device), atts_llm[modality]])
                      inp_list.extend([self.emb_cue[modality][:,1:].repeat(bs, 1, 1).to(self.device), inputs_llm[modality]])
+                     continue
                 att_list.extend([self.att_cue[modality].repeat(bs, 1).to(self.device), atts_llm[modality]])
                 inp_list.extend([self.emb_cue[modality].repeat(bs, 1, 1).to(self.device), inputs_llm[modality]])
             else:
